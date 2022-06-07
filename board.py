@@ -1,12 +1,30 @@
 def get_empty_board():
-    '''
+  board_0 = [
+  [".", ".", "."], 
+  [".", ".", "."], 
+  [".", ".", "."],
+  ]
+  return board_0
+  '''
     Should return a list with 3 sublists.
     Each sublist should contain 3 time the "." character
-    '''
-    pass
+    
+    '''  
 
 
 def display_board(board):
+  print("\n")
+  print("\t    1     2     3")
+  print("\t       |     |")
+  print("\tA   {}  |  {}  |  {}".format(board[0][0], board[0][1], board[0][2]))
+  print('\t  _____|_____|_____')
+  print("\t       |     |")
+  print("\tB   {}  |  {}  |  {}".format(board[1][0], board[1][1], board[1][2]))
+  print('\t  _____|_____|_____')
+  print("\t       |     |")
+  print("\tC   {}  |  {}  |  {}".format(board[2][0], board[2][1], board[2][2]))
+  print("\t       |     |")
+  print("\n")
   """
   Should print the tic tac toe board in a format similar to
        1   2   3
@@ -17,7 +35,6 @@ def display_board(board):
     C   0 | X | . 
        --+---+---
   """
-  pass
 
 
 def is_board_full(board):
@@ -41,10 +58,10 @@ if __name__ == "__main__":
     empty_board = get_empty_board()
     print(empty_board)
 
-    board = [
+    board_example = [
       ['X', "O", "."],
-      ['X', "O", "."]
-      ['0', "X", "."]
+      ['X', "O", "."],
+      ["O", "X", "."],
     ]
     print("""
     should print 
@@ -53,11 +70,11 @@ if __name__ == "__main__":
        ---+---+---
     B   X | O | .
        ---+---+---
-    C   0 | X | . 
+    C   O | X | . 
        ---+---+---
     """)
     
-    display_board(board)
+    display_board(board_example)
     
     board_1 = [
       ["X", "O", "."],
