@@ -63,16 +63,16 @@ if __name__ == "__main__":
       ['X', "O", "."],
       ["O", "X", "."],
     ]
-    print("""
-    should print 
-        1   2   3
-    A   X | O | . 
-       ---+---+---
-    B   X | O | .
-       ---+---+---
-    C   O | X | . 
-       ---+---+---
-    """)
+    # print("""
+    # should print 
+    #     1   2   3
+    # A   X | O | . 
+    #    ---+---+---
+    # B   X | O | .
+    #    ---+---+---
+    # C   O | X | . 
+    #    ---+---+---
+    # """)
     
     display_board(board_example)
     
