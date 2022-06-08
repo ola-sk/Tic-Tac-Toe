@@ -38,11 +38,18 @@ def display_board(board):
 
 
 def is_board_full(board):
+  list=[]
+  for i in range(3):
+    for j in range(3):
+      list.append(board[i][j])
+  if "." not in list:
+    return True 
+  else:
+    return False
   """
   should return True if there are no more empty place on the board,
   otherwise should return False
   """
-  pass
 
 
 def get_winning_player(board):
@@ -63,16 +70,16 @@ if __name__ == "__main__":
       ['X', "O", "."],
       ["O", "X", "."],
     ]
-    print("""
-    should print 
-        1   2   3
-    A   X | O | . 
-       ---+---+---
-    B   X | O | .
-       ---+---+---
-    C   O | X | . 
-       ---+---+---
-    """)
+    # print("""
+    # should print 
+    #     1   2   3
+    # A   X | O | . 
+    #    ---+---+---
+    # B   X | O | .
+    #    ---+---+---
+    # C   O | X | . 
+    #    ---+---+---
+    # """)
     
     display_board(board_example)
     
