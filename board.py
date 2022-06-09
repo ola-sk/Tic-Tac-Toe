@@ -53,6 +53,41 @@ def is_board_full(board):
 
 
 def get_winning_player(board):
+  if board[0][0] == board[0][1] == board[0][2] == "X":
+    return ("Player X has won")
+  elif board[1][0] == board[1][1] == board[1][2] == "X":
+    return ("Player X has won")
+  elif board[2][0] == board[2][1] == board[2][2] == "X":
+    return ("Player X has won")
+  elif board[0][0] == board[1][0] == board[2][0] == "X":
+    return ("Player X has won")
+  elif board[0][1] == board[1][1] == board[2][1] == "X":
+    return ("Player X has won")
+  elif board[0][2] == board[1][2] == board[2][2] == "X":
+    return ("Player X has won")
+  elif board[0][0] == board[1][1] == board[2][2] == "X":
+    return ("Player X has won")
+  elif board[2][0] == board[1][1] == board[0][2] == "X":
+    return ("Player X has won")
+  elif board[0][0] == board[0][1] == board[0][2] == "O":
+    return ("Player O has won")
+  elif board[1][0] == board[1][1] == board[1][2] == "O":
+    return ("Player O has won")
+  elif board[2][0] == board[2][1] == board[2][2] == "O":
+    return ("Player O has won")
+  elif board[0][0] == board[1][0] == board[2][0] == "O":
+    return ("Player O has won")
+  elif board[0][1] == board[1][1] == board[2][1] == "O":
+    return ("Player O has won")
+  elif board[0][2] == board[1][2] == board[2][2] == "O":
+    return ("Player O has won")
+  elif board[0][0] == board[1][1] == board[2][2] == "O":
+    return ("Player O has won")
+  elif board[2][0] == board[1][1] == board[0][2] == "O":
+    return ("Player O has won")
+  else:
+    return ("None")
+
   """
   Should return the player that wins based on the tic tac toe rules.
   If no player has won, than "None" is returned.
@@ -70,16 +105,16 @@ if __name__ == "__main__":
       ['X', "O", "."],
       ["O", "X", "."],
     ]
-    # print("""
-    # should print 
-    #     1   2   3
-    # A   X | O | . 
-    #    ---+---+---
-    # B   X | O | .
-    #    ---+---+---
-    # C   O | X | . 
-    #    ---+---+---
-    # """)
+    print("""
+    should print 
+        1   2   3
+    A   X | O | . 
+       ---+---+---
+    B   X | O | .
+       ---+---+---
+    C   O | X | . 
+       ---+---+---
+    """)
     
     display_board(board_example)
     
