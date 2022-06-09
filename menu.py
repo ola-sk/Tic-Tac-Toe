@@ -11,6 +11,8 @@ def get_menu_option():
   asking to input a new value.
   '''
   pass
+print('kkk')
+print('lll')
 
 
 if __name__ == "__main__":
