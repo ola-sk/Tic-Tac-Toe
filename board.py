@@ -12,6 +12,16 @@ def get_empty_board():
 
 
 def display_board(board):
+    """
+    Should print the tic tac toe board in a format similar to
+       1   2   3
+    A   X | O | .
+       ---+---+---
+    B   X | O | .
+       --+---+---
+    C   0 | X | .
+       --+---+---
+    """
     print("\n")
     print("\t    1     2     3")
     print("\t       |     |")
@@ -24,16 +34,6 @@ def display_board(board):
     print("\tC   {}  |  {}  |  {}".format(board[2][0], board[2][1], board[2][2]))
     print("\t       |     |")
     print("\n")
-    """
-  Should print the tic tac toe board in a format similar to
-       1   2   3
-    A   X | O | . 
-       ---+---+---
-    B   X | O | .
-       --+---+---
-    C   0 | X | . 
-       --+---+---
-  """
 
 
 def is_board_full(board):
@@ -95,7 +95,7 @@ def get_winning_player(board):
 # run this file to test whether you have correctly implemented the functions
 if __name__ == "__main__":
     empty_board = get_empty_board()
-    print(empty_board)
+    display_board(empty_board)
 
     board_example = [
         ['X', "O", "."],
