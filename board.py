@@ -95,6 +95,7 @@ def get_winning_player(board):
 # run this file to test whether you have correctly implemented the functions
 if __name__ == "__main__":
     empty_board = get_empty_board()
+    print("Display empty board: ", end='')
     display_board(empty_board)
 
     board_example = [
@@ -102,42 +103,40 @@ if __name__ == "__main__":
         ['X', "O", "."],
         ["O", "X", "."],
     ]
-    # print("""
-    # should print
-    #     1   2   3
-    # A   X | O | .
-    #    ---+---+---
-    # B   X | O | .
-    #    ---+---+---
-    # C   O | X | .
-    #    ---+---+---
-    # """)
-
+    print("Trying out 'is_board_full()' function on this board:", end='')
     display_board(board_example)
+    print("Should return False:")
+    print(is_board_full(board_example), "\n")
 
     board_1 = [
         ["X", "O", "."],
         ["X", "O", "."],
         ["X", "X", "O"],
     ]
-    print("Should return False")
-    print(is_board_full(board_1))
+    print("Trying out 'is_board_full()' function on this board:", end='')
+    display_board(board_1)
+    print("Should return False:")
+    print(is_board_full(board_1), "\n")
 
     board_2 = [
         [".", "O", "O"],
         [".", "O", "X"],
         [".", "X", "X"],
     ]
-    print("Should return False")
-    print(is_board_full(board_2))
+    print("Trying out 'is_board_full()' function on this board:", end='')
+    display_board(board_2)
+    print("Should return False:")
+    print(is_board_full(board_2), "\n")
 
     board_3 = [
         ["O", "O", "X"],
         ["O", "X", "O"],
         ["O", "X", "X"],
     ]
-    print("Should return True")
-    print(is_board_full(board_3))
+    print("Trying out 'is_board_full()' function on this board:", end='')
+    display_board(board_3)
+    print("Should return True:")
+    print(is_board_full(board_3), "\n")
 
     board_4 = [
         ["X", "O", "."],
