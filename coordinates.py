@@ -1,5 +1,4 @@
 def get_human_coordinates(board, current_player):
-<<<<<<< HEAD
 
   letter = ""
   number = 0
@@ -25,7 +24,6 @@ def get_human_coordinates(board, current_player):
   should stop.
   """
   pass
-=======
     """
     Should return the read coordinates for the tic tac toe board from the terminal.
     The coordinates should be in the format  letter, number where the letter is
@@ -38,7 +36,6 @@ def get_human_coordinates(board, current_player):
     should stop.
     """
     pass
->>>>>>> 3368173c61ad8b3f6ed8ca697b6b467a0dc1d9e0
 
 
 def get_random_ai_coordinates(board, current_player):
