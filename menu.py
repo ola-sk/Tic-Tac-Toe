@@ -20,8 +20,17 @@ def get_menu_option():
         3. Human vs Random AI
         4. Human vs Unbeatable AI
         """)
-    chosen_option = int(input('Choose one option from one to four:'))
-    return chosen_option
+    try:    
+        chosen_option = int(input('Choose one option from one to four:'))
+        while chosen_option < 1 or chosen_option > 4: 
+            chosen_option = int(input('Choose one option from one to four:'))
+    except ValueError:
+        
+
+        return chosen_option 
+
+
+
 
 
 if __name__ == "__main__":
