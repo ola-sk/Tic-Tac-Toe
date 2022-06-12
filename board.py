@@ -97,6 +97,7 @@ def get_winning_player(board):
     # # Items inside are coordinates represented by a pair of numbers (a tuple) that are coordinates of each field of the
     # # winning configuration.
     # # win_line = list()
+
     # for row in board:
     #     if len(set(row)) == 1 and row[0] != ".":
     #         return row[0]

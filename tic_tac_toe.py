@@ -11,9 +11,11 @@ HUMAN_VS_UNBEATABLE_AI = 4
 def main():
     game_mode = get_menu_option()
     board = get_empty_board()
+
     is_game_running = True
     while is_game_running:
         display_board(board)
+
 
         # TODO ###
         # in each new iteration of the while loop the program should
