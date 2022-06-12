@@ -103,9 +103,9 @@ def get_winning_player(board):
     for column in numpy.transpose(board):
         if len(set(column)) == 1 and column[0] != ".":
             return column[0]
-    if len(set([board[i][i] for i in range(len(board))])) == 1:
+    if len(set([board[i][i] for i in range(len(board))])) == 1 and board[0][0] != ".":
         return board[0][0]
-    elif len(set([board[i][len(board) - i - 1] for i in range(len(board))])) == 1:
+    elif len(set([board[i][len(board) - i - 1] for i in range(len(board))])) == 1 and board[0][len(board) - 1] != ".":
         return board[0][len(board) - 1]
     else:
         return None
