@@ -33,9 +33,7 @@ def get_random_ai_coordinates(board, current_player):
     If the board is full (all spots taken by either X or O) then "None"
     should be returned.
     """
-    for i in board
 
-    return (1, 2)
 
 def get_unbeatable_ai_coordinates(board, current_player):
     """
