@@ -56,59 +56,59 @@ def get_winning_player(board):
     Should return the player that wins based on the tic tac toe rules.
     If no player has won, then "None" is returned.
     """
-    # if board[0][0] == board[0][1] == board[0][2] == "X":
-    #     return "Player X has won"
-    # elif board[1][0] == board[1][1] == board[1][2] == "X":
-    #     return "Player X has won"
-    # elif board[2][0] == board[2][1] == board[2][2] == "X":
-    #     return "Player X has won"
-    # elif board[0][0] == board[1][0] == board[2][0] == "X":
-    #     return "Player X has won"
-    # elif board[0][1] == board[1][1] == board[2][1] == "X":
-    #     return "Player X has won"
-    # elif board[0][2] == board[1][2] == board[2][2] == "X":
-    #     return "Player X has won"
-    # elif board[0][0] == board[1][1] == board[2][2] == "X":
-    #     return "Player X has won"
-    # elif board[2][0] == board[1][1] == board[0][2] == "X":
-    #     return "Player X has won"
-    # elif board[0][0] == board[0][1] == board[0][2] == "O":
-    #     return "Player O has won"
-    # elif board[1][0] == board[1][1] == board[1][2] == "O":
-    #     return "Player O has won"
-    # elif board[2][0] == board[2][1] == board[2][2] == "O":
-    #     return "Player O has won"
-    # elif board[0][0] == board[1][0] == board[2][0] == "O":
-    #     return "Player O has won"
-    # elif board[0][1] == board[1][1] == board[2][1] == "O":
-    #     return "Player O has won"
-    # elif board[0][2] == board[1][2] == board[2][2] == "O":
-    #     return "Player O has won"
-    # elif board[0][0] == board[1][1] == board[2][2] == "O":
-    #     return "Player O has won"
-    # elif board[2][0] == board[1][1] == board[0][2] == "O":
-    #     return "Player O has won"
-    # else:
-    #     return "None"
-
-    import numpy
-    # TODO implement win_line (introduce indexing to the logic below)
-    # win_line is a list representing the winning row, column or diagonal.
-    # Items inside are coordinates represented by a pair of numbers (a tuple) that are coordinates of each field of the
-    # winning configuration.
-    # win_line = list()
-    for row in board:
-        if len(set(row)) == 1 and row[0] != ".":
-            return row[0]
-    for column in numpy.transpose(board):
-        if len(set(column)) == 1 and column[0] != ".":
-            return column[0]
-    if len(set([board[i][i] for i in range(len(board))])) == 1 and board[0][0] != ".":
-        return board[0][0]
-    elif len(set([board[i][len(board) - i - 1] for i in range(len(board))])) == 1 and board[0][len(board) - 1] != ".":
-        return board[0][len(board) - 1]
+    if board[0][0] == board[0][1] == board[0][2] == "X":
+        return "Player X has won"
+    elif board[1][0] == board[1][1] == board[1][2] == "X":
+        return "Player X has won"
+    elif board[2][0] == board[2][1] == board[2][2] == "X":
+        return "Player X has won"
+    elif board[0][0] == board[1][0] == board[2][0] == "X":
+        return "Player X has won"
+    elif board[0][1] == board[1][1] == board[2][1] == "X":
+        return "Player X has won"
+    elif board[0][2] == board[1][2] == board[2][2] == "X":
+        return "Player X has won"
+    elif board[0][0] == board[1][1] == board[2][2] == "X":
+        return "Player X has won"
+    elif board[2][0] == board[1][1] == board[0][2] == "X":
+        return "Player X has won"
+    elif board[0][0] == board[0][1] == board[0][2] == "O":
+        return "Player O has won"
+    elif board[1][0] == board[1][1] == board[1][2] == "O":
+        return "Player O has won"
+    elif board[2][0] == board[2][1] == board[2][2] == "O":
+        return "Player O has won"
+    elif board[0][0] == board[1][0] == board[2][0] == "O":
+        return "Player O has won"
+    elif board[0][1] == board[1][1] == board[2][1] == "O":
+        return "Player O has won"
+    elif board[0][2] == board[1][2] == board[2][2] == "O":
+        return "Player O has won"
+    elif board[0][0] == board[1][1] == board[2][2] == "O":
+        return "Player O has won"
+    elif board[2][0] == board[1][1] == board[0][2] == "O":
+        return "Player O has won"
     else:
-        return None
+        return "None"
+
+    # import numpy
+    # # TODO implement win_line (introduce indexing to the logic below)
+    # # win_line is a list representing the winning row, column or diagonal.
+    # # Items inside are coordinates represented by a pair of numbers (a tuple) that are coordinates of each field of the
+    # # winning configuration.
+    # # win_line = list()
+    # for row in board:
+    #     if len(set(row)) == 1 and row[0] != ".":
+    #         return row[0]
+    # for column in numpy.transpose(board):
+    #     if len(set(column)) == 1 and column[0] != ".":
+    #         return column[0]
+    # if len(set([board[i][i] for i in range(len(board))])) == 1 and board[0][0] != ".":
+    #     return board[0][0]
+    # elif len(set([board[i][len(board) - i - 1] for i in range(len(board))])) == 1 and board[0][len(board) - 1] != ".":
+    #     return board[0][len(board) - 1]
+    # else:
+    #     return None
 
 
 # run this file to test whether you have correctly implemented the functions
