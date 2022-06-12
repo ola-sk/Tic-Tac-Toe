@@ -5,9 +5,9 @@ def get_human_coordinates(board, current_player):
     A, B or C and the number 1, 2 or 3.
     If the user enters an invalid coordinate (like Z0 or 1A, A11, sadfdsaf)
     then a warning message should appear and the coordinates reading process repeated.
-    If the user enters a coordinate that is already taken on the board.
-    than a warning message should appear and the coordinates reading process repeated.
-    If the user enters the word "quit" in any format of capitalized letters the program
+    If the user enters a coordinate that is already taken on the board
+    then a warning message should appear and the coordinates reading process repeated.
+    If the user enters the word "quit" in any format of capitalised or non-capitalised letters, the program
     should stop.
     """
     pass
