@@ -1,4 +1,17 @@
 def get_human_coordinates(board, current_player):
+
+  letter = ""
+  number = 0
+
+  while ((letter != "A" and letter != "B" and letter != "C") or (number != 1 and number != 2 and number != 3)):
+    
+    letter = input("Enter a line A, B or C: ")
+    number = int(input("Enter a column 1, 2 or 3: "))
+  
+    if ((letter != "A" and letter != "B" and letter != "C") or (number != 1 and number != 2 and number != 3)):
+      print("Warning! Invalid input!")
+    else:
+      print(f"You have chosen {letter}{number} ")
   """
   Should return the read coordinates for the tic tac toe board from the terminal.
   The coordinates should be in the format  letter, number where the letter is 
