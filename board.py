@@ -94,8 +94,8 @@ def get_winning_player(board):
     # import numpy
     # # TODO implement win_line (introduce indexing to the logic below)
     # # win_line is a list representing the winning row, column or diagonal.
-    # # Items inside are coordinates represented by a pair of numbers (a tuple) that are coordinates of each field of the
-    # # winning configuration.
+    # # Items inside are coordinates represented by a pair of numbers (a tuple) that are coordinates of each field of
+    # the winning configuration.
     # # win_line = list()
 
     # for row in board:
