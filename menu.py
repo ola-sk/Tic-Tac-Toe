@@ -20,17 +20,18 @@ def get_menu_option():
         3. Human vs Random AI
         4. Human vs Unbeatable AI
         """)
-
-    chosen_option = int(input('Choose one option from one to four: '))
-    while chosen_option < 1 or chosen_option > 4:
-        print('Choose one option from one to four: ')
+    print("Choose one option from one to four: ")
+    while True:
         try:
             chosen_option = int(input())
         except ValueError:
-            print("Wrong choice. Please choose option between 1-4")
-            # chosen_option = int(input())
+            print("Please enter a number! Choose from 1-4: ")
             continue
-    return chosen_option
+        if chosen_option < 1 or chosen_option > 4:
+            print("Wrong choice. Please choose option between 1-4")
+            continue
+        else:
+            return chosen_option
 
 
 
