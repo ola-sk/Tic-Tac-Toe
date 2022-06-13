@@ -11,7 +11,15 @@ HUMAN_VS_UNBEATABLE_AI = 4
 def main():
     game_mode = get_menu_option()
     board = get_empty_board()
-
+    try:
+        current_player = 'O' # assigning 'O' here makes the 'X' start first.
+        if current_player != 'O' or current_player != 'X':
+            raise ValueError
+    except ValueError:
+        print("Please set the current player to have the symbol in the game set as either 'O' or 'X'. Currently "
+              "the game doesn't work with characters others than those.")
+        # TODO make a proper exception handling: create a function that will get another proper value assigned to the
+        #  current_player
     is_game_running = True
     while is_game_running:
         display_board(board)
@@ -20,13 +28,41 @@ def main():
         # TODO ###
         # in each new iteration of the while loop the program should
         # alternate the value of `current_player` from `X` to `O`
-        current_player = 'X'
+        try:
+            if current_player == 'X':
+                current_player = 'O'
+            elif current_player == 'O':
+                current_player = 'X'
+            else:
+                raise ValueError
+        except ValueError:
+            print("Something went wrong! Please set the current player to have the symbol in the game set as "
+                  "either 'O' or 'X'. Currently the game doesn't work with characters others than those.")
+            # TODO make a proper exception handling: create a function that will get another proper value assigned to
+            #  the current_player
+
 
         # TODO ###
+        # Ustalić kto zaczyna pierwszy. Być może zrobić opcję wyboru znaku przez gracza na początku rozgrywki lub human
+        # player zawsze zaczyna pierwszy krzyżykiem.
+
         # based on the value of the variables `game_mode` and `current_player`
-        # the program should should choose between the functions
+        # the program should choose between the functions
         # get_random_ai_coordinates or get_unbeatable_ai_coordinates or get_human_coordinates
-        x, y = get_human_coordinates(board, current_player)
+        if game_mode == 1:
+            x, y = get_human_coordinates(board, current_player)
+        elif game_mode == 2:
+            x, y = get_random_ai_coordinates(board, current_player)
+        elif game_mode == 3:
+            if current_player == 'X':
+                x, y = get_human_coordinates(board, current_player)
+            elif current_player == 'O':
+                x, y = get_random_ai_coordinates(board, current_player)
+        elif game_mode == 4:
+            if current_player == 'X':
+                x, y = get_human_coordinates(board, current_player)
+            elif current_player == 'O':
+                x, y = get_unbeatable_ai_coordinates(board, current_player)
 
         board[x][y] = current_player
 
@@ -35,7 +71,23 @@ def main():
         # should either stop displaying a winning/tie message 
         # OR continue the while loop
         winning_player = get_winning_player(board)
-        its_a_tie = is_board_full(board)
+        if winning_player is None and is_board_full(board):
+            its_a_tie = True
+        if its_a_tie:
+            print("It is a tie!")
+        elif winning_player:
+            try:
+                if winning_player == 'X':
+                    print("X has won the game!")
+                elif winning_player == 'O':
+                    print("O has won the game!")
+                else:
+                    raise ValueError
+            except ValueError:
+                print("There was an error. Please check if the winning player has been assigned correctly.")
+
+        if its_a_tie or winning_player:
+            is_game_running = False
 
 
 if __name__ == "__main__":
