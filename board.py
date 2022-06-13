@@ -57,39 +57,39 @@ def get_winning_player(board):
     If no player has won, then "None" is returned.
     """
     if board[0][0] == board[0][1] == board[0][2] == "X":
-        return "Player X has won"
+        return "X"
     elif board[1][0] == board[1][1] == board[1][2] == "X":
-        return "Player X has won"
+        return "X"
     elif board[2][0] == board[2][1] == board[2][2] == "X":
-        return "Player X has won"
+        return "X"
     elif board[0][0] == board[1][0] == board[2][0] == "X":
-        return "Player X has won"
+        return "X"
     elif board[0][1] == board[1][1] == board[2][1] == "X":
-        return "Player X has won"
+        return "X"
     elif board[0][2] == board[1][2] == board[2][2] == "X":
-        return "Player X has won"
+        return "X"
     elif board[0][0] == board[1][1] == board[2][2] == "X":
-        return "Player X has won"
+        return "X"
     elif board[2][0] == board[1][1] == board[0][2] == "X":
-        return "Player X has won"
+        return "X"
     elif board[0][0] == board[0][1] == board[0][2] == "O":
-        return "Player O has won"
+        return "O"
     elif board[1][0] == board[1][1] == board[1][2] == "O":
-        return "Player O has won"
+        return "O"
     elif board[2][0] == board[2][1] == board[2][2] == "O":
-        return "Player O has won"
+        return "O"
     elif board[0][0] == board[1][0] == board[2][0] == "O":
-        return "Player O has won"
+        return "O"
     elif board[0][1] == board[1][1] == board[2][1] == "O":
-        return "Player O has won"
+        return "O"
     elif board[0][2] == board[1][2] == board[2][2] == "O":
-        return "Player O has won"
+        return "O"
     elif board[0][0] == board[1][1] == board[2][2] == "O":
-        return "Player O has won"
+        return "O"
     elif board[2][0] == board[1][1] == board[0][2] == "O":
-        return "Player O has won"
+        return "O"
     else:
-        return "None"
+        return None
 
     # import numpy
     # # TODO implement win_line (introduce indexing to the logic below)
