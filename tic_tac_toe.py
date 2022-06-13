@@ -1,5 +1,6 @@
 from board import display_board, get_empty_board, is_board_full, get_winning_player
-from coordinates import get_human_coordinates, get_random_ai_coordinates, get_unbeatable_ai_coordinates
+from coordinates import get_human_coordinates, get_random_ai_coordinates, get_unbeatable_ai_coordinates, \
+    convert_human_coordinates
 from menu import get_menu_option
 
 HUMAN_VS_HUMAN = 1
@@ -11,6 +12,7 @@ HUMAN_VS_UNBEATABLE_AI = 4
 def main():
     game_mode = get_menu_option()
     board = get_empty_board()
+    # history_list = []
     try:
         current_player = 'O' # assigning 'O' here makes the 'X' start first.
         if current_player != 'O' or current_player != 'X':
@@ -50,17 +52,17 @@ def main():
         # the program should choose between the functions
         # get_random_ai_coordinates or get_unbeatable_ai_coordinates or get_human_coordinates
         if game_mode == 1:
-            x, y = get_human_coordinates(board, current_player)
+            x, y = convert_human_coordinates(get_human_coordinates(board, current_player))
         elif game_mode == 2:
             x, y = get_random_ai_coordinates(board, current_player)
         elif game_mode == 3:
             if current_player == 'X':
-                x, y = get_human_coordinates(board, current_player)
+                x, y = convert_human_coordinates(get_human_coordinates(board, current_player))
             elif current_player == 'O':
                 x, y = get_random_ai_coordinates(board, current_player)
         elif game_mode == 4:
             if current_player == 'X':
-                x, y = get_human_coordinates(board, current_player)
+                x, y = convert_human_coordinates(get_human_coordinates(board, current_player))
             elif current_player == 'O':
                 x, y = get_unbeatable_ai_coordinates(board, current_player)
 

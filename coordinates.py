@@ -1,7 +1,7 @@
 def get_human_coordinates(board, current_player):
     """
     Should return the read coordinates for the tic tac toe board from the terminal.
-    The coordinates should be in the format  letter, number where the letter is
+    The coordinates should be in the format letter, number where the letter is
     A, B or C and the number 1, 2 or 3.
     If the user enters an invalid coordinate (like Z0 or 1A, A11, sadfdsaf)
     than a warning message should appear and the coordinates reading process repeated.
@@ -24,6 +24,31 @@ def get_human_coordinates(board, current_player):
         print(f"You have chosen {letter}{number} ")
 
 
+def convert_human_coordinates(human_coordinates: tuple):
+    x, y = human_coordinates
+    # x should be a letter representing the row on the board.
+    # y should be a number representing a column on the board.
+    try:
+        if x.lower() == 'a':
+            x = 0
+        elif x.lower() == 'b':
+            x = 1
+        elif x.lower() == 'c':
+            x = 2
+        else:
+            raise ValueError
+        if y == 1:
+            y = 0
+        elif y == 2:
+            y = 1
+        elif y == 3:
+            y = 2
+        else:
+            raise ValueError
+    except ValueError:
+        print("The coordinates that the function `convert_human_coordinates()` got are incorrect. Please debug.")
+    return x, y
+
 
 def get_random_ai_coordinates(board, current_player):
     """
@@ -33,6 +58,15 @@ def get_random_ai_coordinates(board, current_player):
     If the board is full (all spots taken by either X or O) then "None"
     should be returned.
     """
+    # check if coordinate is free...
+    # 1st option:
+    # keep track of all coordinates that are free vs taken and update both of them when the state changes.
+    # In this option we would need to pass to the function the free coordinates of the board and once we draw the
+    # coordinates, we would need to deal with updating the board as well.
+    # 2nd option:
+    # choose a coordinate randomly in a loop, as soon as they are free, return the coordinates.
+    #
+    # return x, y
 
 
 def get_unbeatable_ai_coordinates(board, current_player):
