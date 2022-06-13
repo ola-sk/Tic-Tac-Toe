@@ -9,6 +9,11 @@ HUMAN_VS_RANDOM_AI = 3
 HUMAN_VS_UNBEATABLE_AI = 4
 
 
+def save_record(history_list_local, current_player_local, row_coordinate, column_coordinate):
+    history_list_local.append(current_player_local, row_coordinate, column_coordinate)
+    return history_list_local
+
+
 def main():
     game_mode = get_menu_option()
     board = get_empty_board()
