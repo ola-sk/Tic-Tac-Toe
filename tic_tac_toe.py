@@ -17,7 +17,7 @@ def save_record(history_list_local, current_player_local, row_coordinate, column
 def main():
     game_mode = get_menu_option()
     board = get_empty_board()
-    # history_list = []
+    history_list = []
     try:
         current_player = 'O' # assigning 'O' here makes the 'X' start first.
         if current_player != 'O' or current_player != 'X':
@@ -56,20 +56,29 @@ def main():
         # based on the value of the variables `game_mode` and `current_player`
         # the program should choose between the functions
         # get_random_ai_coordinates or get_unbeatable_ai_coordinates or get_human_coordinates
+
+        # x: row of the board coordinate
+        # y: column of the boards coordinate
         if game_mode == 1:
             x, y = convert_human_coordinates(get_human_coordinates(board, current_player))
+            save_record(history_list, current_player, x, y)
         elif game_mode == 2:
             x, y = get_random_ai_coordinates(board, current_player)
+            save_record(history_list, current_player, x, y)
         elif game_mode == 3:
             if current_player == 'X':
                 x, y = convert_human_coordinates(get_human_coordinates(board, current_player))
+                save_record(history_list, current_player, x, y)
             elif current_player == 'O':
                 x, y = get_random_ai_coordinates(board, current_player)
+                save_record(history_list, current_player, x, y)
         elif game_mode == 4:
             if current_player == 'X':
                 x, y = convert_human_coordinates(get_human_coordinates(board, current_player))
+                save_record(history_list, current_player, x, y)
             elif current_player == 'O':
                 x, y = get_unbeatable_ai_coordinates(board, current_player)
+                save_record(history_list, current_player, x, y)
 
         board[x][y] = current_player
 
