@@ -15,30 +15,43 @@ def get_human_coordinates(board):
     If the user enters the word "quit" in any format of capitalized letters the program
     should stop.
     """
-    letter = ""
-    number = 0
+    # letter = ""
+    # number = 0
+    # while ((letter != "A" and letter != "B" and letter != "C") or (number != 1 and number != 2 and number != 3)):
+    field = ''
+    fields= {
+            "A1" : board[0][0],
+            "A2" : board[0][1],
+            "A3" : board[0][2],
+            "B1" : board[1][0],
+            "B2" : board[1][1],
+            "B3" : board[1][2],
+            "C1" : board[2][0],
+            "C2" : board[2][1],
+            "C3" : board[2][2]
+        }
+    #     letter = input("Enter a line A, B or C: ")
+    while (field != "A1" and field != "A2" and field != "A3" and field != "B1" and field != "B2" and field != "B3" and field != "C1" and field != "C2" and field != "C3"):
+        field=input("Enter a field A1, A2, A3, B1, B2, B3, C1, C2 or C3: ")
+        
+        
+        # if "quit" == letter.lower(): 
+        #     print("Good Bye")
+        #     break
 
-    while ((letter != "A" and letter != "B" and letter != "C") or (number != 1 and number != 2 and number != 3)):
-
-        letter = input("Enter a line A, B or C: ")
-
-        if "quit" == letter.lower(): 
-            print("Good Bye")
-            break
-
-        number = input("Enter a column 1, 2 or 3: ")
+        # number = input("Enter a column 1, 2 or 3: ")
     
-        if "quit" == number.lower():
-            print("Good Bye")
-            break
+        # if "quit" == number.lower():
+        #     print("Good Bye")
+        #     break
 
-        number = int(number)
+        # number = int(number)
 
-        if ((letter != "A" and letter != "B" and letter != "C") or (number != 1 and number != 2 and number != 3)):
+        if (field != "A1" and field != "A2" and field != "A3" and field != "B1" and field != "B2" and field != "B3" and field != "C1" and field != "C2" and field != "C3"):
             print("Warning! Invalid input!")
         else:
-            print(f"You have chosen {letter}{number} ")
-            return letter, number
+            print(f"You have chosen {field} ")
+            return field
 
     
     # letter = input("Enter a row letter (A/B/C): ")
