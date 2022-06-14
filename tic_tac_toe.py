@@ -18,9 +18,9 @@ def main():
     game_mode = get_menu_option()
     board = get_empty_board()
     history_list = []
-    empty_fields = get_empty_fields(board)
+    # empty_fields = get_empty_fields(board)
     try:
-        current_player = 'O' # assigning 'O' here makes the 'X' start first.
+        current_player = 'O'  # assigning 'O' here makes the 'X' start first.
         if current_player != 'O' or current_player != 'X':
             raise ValueError
     except ValueError:
@@ -31,7 +31,6 @@ def main():
     is_game_running = True
     while is_game_running:
         display_board(board)
-
 
         # TODO ###
         # in each new iteration of the while loop the program should
