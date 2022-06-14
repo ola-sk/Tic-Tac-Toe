@@ -1,6 +1,6 @@
-from board import display_board, get_empty_board, is_board_full, get_winning_player
+from board import display_board, get_empty_board, is_board_full, get_winning_player, get_empty_fields
 from coordinates import get_human_coordinates, get_random_ai_coordinates, get_unbeatable_ai_coordinates, \
-    convert_human_coordinates
+    convert_human_coordinates, perform_move
 from menu import get_menu_option
 
 HUMAN_VS_HUMAN = 1
@@ -10,7 +10,7 @@ HUMAN_VS_UNBEATABLE_AI = 4
 
 
 def save_record(history_list_local, current_player_local, row_coordinate, column_coordinate):
-    history_list_local.append(current_player_local, row_coordinate, column_coordinate)
+    history_list_local.append((current_player_local, row_coordinate, column_coordinate))
     return history_list_local
 
 
@@ -18,8 +18,9 @@ def main():
     game_mode = get_menu_option()
     board = get_empty_board()
     history_list = []
+    # empty_fields = get_empty_fields(board)
     try:
-        current_player = 'O' # assigning 'O' here makes the 'X' start first.
+        current_player = 'O'  # assigning 'O' here makes the 'X' start first.
         if current_player != 'O' or current_player != 'X':
             raise ValueError
     except ValueError:
@@ -30,7 +31,6 @@ def main():
     is_game_running = True
     while is_game_running:
         display_board(board)
-
 
         # TODO ###
         # in each new iteration of the while loop the program should
@@ -60,24 +60,30 @@ def main():
         # x: row of the board coordinate
         # y: column of the boards coordinate
         if game_mode == 1:
-            x, y = convert_human_coordinates(get_human_coordinates(board, current_player))
+            x, y = convert_human_coordinates(get_human_coordinates(board))
+            board = perform_move(board, x, y, current_player)
             save_record(history_list, current_player, x, y)
         elif game_mode == 2:
-            x, y = get_random_ai_coordinates(board, current_player)
+            x, y = get_random_ai_coordinates(board)
+            board = perform_move(board, x, y, current_player)
             save_record(history_list, current_player, x, y)
         elif game_mode == 3:
             if current_player == 'X':
-                x, y = convert_human_coordinates(get_human_coordinates(board, current_player))
+                x, y = convert_human_coordinates(get_human_coordinates(board))
+                board = perform_move(board, x, y, current_player)
                 save_record(history_list, current_player, x, y)
             elif current_player == 'O':
-                x, y = get_random_ai_coordinates(board, current_player)
+                x, y = get_random_ai_coordinates(board)
+                board = perform_move(board, x, y, current_player)
                 save_record(history_list, current_player, x, y)
         elif game_mode == 4:
             if current_player == 'X':
-                x, y = convert_human_coordinates(get_human_coordinates(board, current_player))
+                x, y = convert_human_coordinates(get_human_coordinates(board))
+                board = perform_move(board, x, y, current_player)
                 save_record(history_list, current_player, x, y)
             elif current_player == 'O':
-                x, y = get_unbeatable_ai_coordinates(board, current_player)
+                x, y = get_unbeatable_ai_coordinates(board)
+                board = perform_move(board, x, y, current_player)
                 save_record(history_list, current_player, x, y)
 
         board[x][y] = current_player

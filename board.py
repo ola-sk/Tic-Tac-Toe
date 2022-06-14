@@ -11,6 +11,17 @@ def get_empty_board():
     return board_0
 
 
+def get_empty_fields(board):
+    """Returns coordinates of empty cells in the board. The coordinates are in the form x, y,
+    where x is a row and y a column and are indexed from 0."""
+    empty_fields_set = set()
+    for row_index in range(len(board)):
+        for column_index in range(len(board[0])):
+            if board[row_index][column_index] == '.':
+                empty_fields_set.add((row_index, column_index))
+    return empty_fields_set
+
+
 def display_board(board):
     """
     Should print the tic tac toe board in a format similar to
@@ -36,11 +47,19 @@ def display_board(board):
     print("\n")
 
 
-def is_board_full(board):
+def is_board_full(board, empty_fields_set_local=False):
     """
     should return True if there are no more empty place on the board,
     otherwise should return False
     """
+    if bool(empty_fields_set_local):
+        # check if items are tuples of ints
+        for item in empty_fields_set_local:
+            if isinstance(item, tuple) and len(item) == 2:
+                for number in item:
+                    if isinstance(number, int) and number < len(board):
+                        return False
+
     list_of_field_states = []
     for i in range(3):
         for j in range(3):
