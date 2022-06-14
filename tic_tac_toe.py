@@ -61,24 +61,24 @@ def main():
         # x: row of the board coordinate
         # y: column of the boards coordinate
         if game_mode == 1:
-            x, y = convert_human_coordinates(get_human_coordinates(board, current_player))
+            x, y = convert_human_coordinates(get_human_coordinates(board))
             save_record(history_list, current_player, x, y)
         elif game_mode == 2:
-            x, y = get_random_ai_coordinates(board, current_player)
+            x, y = get_random_ai_coordinates(board)
             save_record(history_list, current_player, x, y)
         elif game_mode == 3:
             if current_player == 'X':
-                x, y = convert_human_coordinates(get_human_coordinates(board, current_player))
+                x, y = convert_human_coordinates(get_human_coordinates(board))
                 save_record(history_list, current_player, x, y)
             elif current_player == 'O':
-                x, y = get_random_ai_coordinates(board, current_player)
+                x, y = get_random_ai_coordinates(board)
                 save_record(history_list, current_player, x, y)
         elif game_mode == 4:
             if current_player == 'X':
-                x, y = convert_human_coordinates(get_human_coordinates(board, current_player))
+                x, y = convert_human_coordinates(get_human_coordinates(board))
                 save_record(history_list, current_player, x, y)
             elif current_player == 'O':
-                x, y = get_unbeatable_ai_coordinates(board, current_player)
+                x, y = get_unbeatable_ai_coordinates(board)
                 save_record(history_list, current_player, x, y)
 
         board[x][y] = current_player
