@@ -1,3 +1,8 @@
+from typing import List
+
+from board import is_board_full
+
+
 def get_human_coordinates(board, current_player):
     """
     Should return the read coordinates for the tic tac toe board from the terminal.
@@ -12,21 +17,28 @@ def get_human_coordinates(board, current_player):
     """
     letter = ""
     number = 0
-
-    while ((letter != "A" and letter != "B" and letter != "C") or (number != 1 and number != 2 and number != 3)):
-
-        letter = input("Enter a line A, B or C: ")
-        number = int(input("Enter a column 1, 2 or 3: "))
-
-    if ((letter != "A" and letter != "B" and letter != "C") or (number != 1 and number != 2 and number != 3)):
-        print("Warning! Invalid input!")
+    letter = input("Enter a row letter (A/B/C): ")
+    while letter.upper() != "A" and letter.upper() != "B" and letter.upper() != "C":
+        print("Your input was incorrect!")
+        letter = input("Choose a row A, B or C: ")
     else:
-        print(f"You have chosen {letter}{number} ")
+        try:
+            number = int(input("Please choose a column 1, 2 or 3: "))
+        except ValueError:
+            pass
+        while number != 1 and number != 2 and number != 3:
+            print("Incorrect input!")
+            try:
+                number = int(input("Choose a column 1, 2 or 3: "))
+            except ValueError:
+                print("Please enter a number character!")
+        else:
+            return letter, number
 
 
 def convert_human_coordinates(human_coordinates: tuple):
     x, y = human_coordinates
-    # x should be a letter representing the row on the board.
+    # x should be a letter representing a row on the board.
     # y should be a number representing a column on the board.
     try:
         if x.lower() == 'a':
@@ -58,6 +70,8 @@ def get_random_ai_coordinates(board, current_player):
     If the board is full (all spots taken by either X or O) then "None"
     should be returned.
     """
+
+
     # check if coordinate is free...
     # 1st option:
     # keep track of all coordinates that are free vs taken and update both of them when the state changes.
@@ -84,16 +98,15 @@ def get_unbeatable_ai_coordinates(board, current_player):
 
 # run this file to test whether you have correctly implemented the functions
 if __name__ == "__main__":
-    board_1 = [
+    board_1: list[list[str]] = [
         ["X", "X", "."],
         ["X", ".", "."],
         ["X", "X", "."],
     ]
     print("It should print the coordinates selected by the human player")
-    coordinate_1 = get_human_coordinates(board_1, "X")
-    print(coordinate_1)
+    print(get_human_coordinates(board_1, "X"))
 
-    board_2 = [
+    board_2: list[list[str]] = [
         ["O", "O", "."],
         ["X", "O", "."],
         ["X", "X", "O"],
@@ -105,7 +118,7 @@ if __name__ == "__main__":
     print("The printed coordinate should be only (0,2) or (1,2)")
     print(get_random_ai_coordinates(board_2, "O"))
 
-    board_3 = [
+    board_3: list[list[str]] = [
         ["O", "X", "X"],
         ["X", "O", "X"],
         ["X", "O", "X"],
@@ -113,26 +126,26 @@ if __name__ == "__main__":
     print("The printed coordinate should be None")
     print(get_random_ai_coordinates(board_3, "O"))
 
-    board_4 = [
+    board_4: list[list[str]] = [
         [".", "O", "."],
         ["X", "O", "."],
         ["X", "X", "O"],
     ]
-    print("The printed coordinate should always be (0, 0)")
-    print(get_unbeatable_ai_coordinates(board_4, "X"))
+    print("The printed coordinate should always be (0, 0)--------------")
+    # print(get_unbeatable_ai_coordinates(board_4, "X"))
 
-    board_5 = [
+    board_5: list[list[str]] = [
         ["X", "O", "."],
         ["X", ".", "."],
         ["O", "O", "X"],
     ]
-    print("The printed coordinate should always be (1, 1)")
-    print(get_unbeatable_ai_coordinates(board_5, "O"))
+    print("The printed coordinate should always be (1, 1)----------------")
+    # print(get_unbeatable_ai_coordinates(board_5, "O"))
 
-    board_6 = [
+    board_6: list[list[str]] = [
         ["O", "O", "."],
         ["O", "X", "."],
         [".", "X", "."],
     ]
-    print("The printed coordinate should either (0, 2) or (2, 0)")
-    print(get_unbeatable_ai_coordinates(board_6))
+    print("The printed coordinate should either (0, 2) or (2, 0)--------------------")
+    # print(get_unbeatable_ai_coordinates(board_6))
