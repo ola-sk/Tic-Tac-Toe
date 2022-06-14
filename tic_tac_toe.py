@@ -1,4 +1,4 @@
-from board import display_board, get_empty_board, is_board_full, get_winning_player
+from board import display_board, get_empty_board, is_board_full, get_winning_player, get_empty_fields
 from coordinates import get_human_coordinates, get_random_ai_coordinates, get_unbeatable_ai_coordinates, \
     convert_human_coordinates
 from menu import get_menu_option
@@ -18,6 +18,7 @@ def main():
     game_mode = get_menu_option()
     board = get_empty_board()
     history_list = []
+    empty_fields = get_empty_fields(board)
     try:
         current_player = 'O' # assigning 'O' here makes the 'X' start first.
         if current_player != 'O' or current_player != 'X':

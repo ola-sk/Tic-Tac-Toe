@@ -11,6 +11,18 @@ def get_empty_board():
     return board_0
 
 
+def get_empty_fields(board):
+    """Returns coordinates of empty cells in the board. The coordinates are in the form x, y,
+    where x is a row and y a column and are indexed from 0."""
+    empty_fields_set = set()
+    for row_index in range(len(board)):
+        for column_index in range(len(board[0])):
+            if board[row_index][column_index] == '.':
+                empty_fields_set.append((row_index, column_index))
+    return empty_fields_set
+
+
+
 def display_board(board):
     """
     Should print the tic tac toe board in a format similar to
