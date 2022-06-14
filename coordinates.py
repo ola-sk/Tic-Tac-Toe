@@ -106,6 +106,11 @@ def get_unbeatable_ai_coordinates(board):
     pass
 
 
+def perform_move(board_local, row_coordinate, column_coordinate, current_player):
+    board_local[row_coordinate][column_coordinate] = current_player
+    return board_local
+
+
 # run this file to test whether you have correctly implemented the functions
 if __name__ == "__main__":
     board_1: list[list[str]] = [
