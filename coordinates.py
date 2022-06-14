@@ -16,12 +16,26 @@ def get_human_coordinates(board, current_player):
     while ((letter != "A" and letter != "B" and letter != "C") or (number != 1 and number != 2 and number != 3)):
 
         letter = input("Enter a line A, B or C: ")
-        number = int(input("Enter a column 1, 2 or 3: "))
 
-    if ((letter != "A" and letter != "B" and letter != "C") or (number != 1 and number != 2 and number != 3)):
-        print("Warning! Invalid input!")
-    else:
-        print(f"You have chosen {letter}{number} ")
+        if "quit" == letter.lower(): 
+            print("Good Bye")
+            break
+
+        number = input("Enter a column 1, 2 or 3: ")
+    
+        if "quit" == number.lower():
+            print("Good Bye")
+            break
+
+        number = int(number)
+
+        if ((letter != "A" and letter != "B" and letter != "C") or (number != 1 and number != 2 and number != 3)):
+            print("Warning! Invalid input!")
+        else:
+            print(f"You have chosen {letter}{number} ")
+            return letter, number
+
+    
 
 
 def convert_human_coordinates(human_coordinates: tuple):
