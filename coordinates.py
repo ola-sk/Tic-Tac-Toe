@@ -3,7 +3,7 @@ from typing import List
 from board import is_board_full
 
 
-def get_human_coordinates(board):
+def get_human_coordinates(board, current_player):
     """
     Should return the read coordinates for the tic tac toe board from the terminal.
     The coordinates should be in the format letter, number where the letter is
@@ -36,7 +36,7 @@ def get_human_coordinates(board):
         #     print(f"You have chosen {letter}{number} ")
         #     return letter, number
 
-
+    import sys
     field = ''
     fields= {
             "A1" : board[0][0],
@@ -50,16 +50,23 @@ def get_human_coordinates(board):
             "C3" : board[2][2]
         }
 
-    while (field != "A1" and field != "A2" and field != "A3" and field != "B1" and field != "B2" and field != "B3" and field != "C1" and field != "C2" and field != "C3"):
+    while (field != "A1" and field != "A2" and field != "A3" and field != "B1" and field != "B2" and field != "B3" and field != "C1" and field != "C2" and field != "C3") or fields[field] != ".":
         field=input("Enter a field A1, A2, A3, B1, B2, B3, C1, C2 or C3: ")
-        
+
+        if field.lower() == "quit":
+            sys.exit()
+
         if (field != "A1" and field != "A2" and field != "A3" and field != "B1" and field != "B2" and field != "B3" and field != "C1" and field != "C2" and field != "C3"):
             print("Warning! Invalid input!")
+        elif fields[field] != ".":
+            print("Sorry. The field is already taken, try again!")
         else:
-            print(f"You have chosen {field} ")
-            return field
+            letter = field[0]
+            number = int(field[1])
+            return letter, number
 
     
+
     # letter = input("Enter a row letter (A/B/C): ")
     # while letter.upper() != "A" and letter.upper() != "B" and letter.upper() != "C":
     #     print("Your input was incorrect!")
@@ -162,7 +169,7 @@ if __name__ == "__main__":
         ["X", "X", "."],
     ]
     print("It should print the coordinates selected by the human player")
-    print(get_human_coordinates(board_1))
+    print(get_human_coordinates(board_1, 'X'))
 
     board_2: list[list[str]] = [
         ["O", "O", "."],
