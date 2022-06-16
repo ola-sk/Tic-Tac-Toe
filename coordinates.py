@@ -3,7 +3,7 @@ from typing import List
 from board import is_board_full
 
 
-def get_human_coordinates(board, current_player):
+def get_human_coordinates(board):
     """
     Should return the read coordinates for the tic tac toe board from the terminal.
     The coordinates should be in the format letter, number where the letter is
@@ -38,16 +38,16 @@ def get_human_coordinates(board, current_player):
 
     import sys
     field = ''
-    fields= {
-            "A1" : board[0][0],
-            "A2" : board[0][1],
-            "A3" : board[0][2],
-            "B1" : board[1][0],
-            "B2" : board[1][1],
-            "B3" : board[1][2],
-            "C1" : board[2][0],
-            "C2" : board[2][1],
-            "C3" : board[2][2]
+    fields = {
+            "A1": board[0][0],
+            "A2": board[0][1],
+            "A3": board[0][2],
+            "B1": board[1][0],
+            "B2": board[1][1],
+            "B3": board[1][2],
+            "C1": board[2][0],
+            "C2": board[2][1],
+            "C3": board[2][2]
         }
 
     while (field != "A1" and field != "A2" and field != "A3" and field != "B1" and field != "B2" and field != "B3" and field != "C1" and field != "C2" and field != "C3") or fields[field] != ".":
