@@ -1,7 +1,9 @@
 from board import display_board, get_empty_board, is_board_full, get_winning_player, get_empty_fields
 from coordinates import get_human_coordinates, get_random_ai_coordinates, get_unbeatable_ai_coordinates, \
     convert_human_coordinates, perform_move
-from menu import get_menu_option
+from menu import get_menu_option, draw_which_player_is_first
+from random import seed
+from random import choice
 
 HUMAN_VS_HUMAN = 1
 RANDOM_AI_VS_RANDOM_AI = 2
@@ -18,10 +20,24 @@ def main():
     game_mode = get_menu_option()
     board = get_empty_board()
     history_list = []
+    if game_mode == 1:
+        print("Please give names of the players.")
+        name_1 = input("Please give the first name:")
+        name_2 = input("Please give the second name:")
+        player_1, player_2 = draw_which_player_is_first(name_1, name_2)  # ta funkcja przypisuje do zmiennych
+        # player 1, player_2 tuple, która przechowuje imię i symbol ('X' or 'O')
+        print(player_1[0], "please choose the coordinate: ")
+        print("Player_1: ", player_1)
+        print("Player_2: ", player_2)
+    if game_mode == 2:
+        name_1 = input("Please enter your name:")
+        name_2 = "random ai"
+        player_1, player_2 = draw_which_player_is_first(name_1, name_2)
+    its_a_tie = False
     # empty_fields = get_empty_fields(board)
     try:
-        current_player = 'O'  # assigning 'O' here makes the 'X' start first.
-        if current_player != 'O' or current_player != 'X':
+        current_player = player_2  # assigning 'O' here makes the 'X' start first.
+        if current_player != player_2 and current_player != player_1:
             raise ValueError
     except ValueError:
         print("Please set the current player to have the symbol in the game set as either 'O' or 'X'. Currently "
@@ -36,10 +52,10 @@ def main():
         # in each new iteration of the while loop the program should
         # alternate the value of `current_player` from `X` to `O`
         try:
-            if current_player == 'X':
-                current_player = 'O'
-            elif current_player == 'O':
-                current_player = 'X'
+            if current_player == player_1:
+                current_player = player_2
+            elif current_player == player_2:
+                current_player = player_1
             else:
                 raise ValueError
         except ValueError:
@@ -61,29 +77,29 @@ def main():
         # y: column of the boards coordinate
         if game_mode == 1:
             x, y = convert_human_coordinates(get_human_coordinates(board))
-            board = perform_move(board, x, y, current_player)
+            board = perform_move(board, x, y, current_player[1])
             save_record(history_list, current_player, x, y)
         elif game_mode == 2:
             x, y = get_random_ai_coordinates(board)
-            board = perform_move(board, x, y, current_player)
+            board = perform_move(board, x, y, current_player[1])
             save_record(history_list, current_player, x, y)
         elif game_mode == 3:
             if current_player == 'X':
                 x, y = convert_human_coordinates(get_human_coordinates(board))
-                board = perform_move(board, x, y, current_player)
+                board = perform_move(board, x, y, current_player[1])
                 save_record(history_list, current_player, x, y)
             elif current_player == 'O':
                 x, y = get_random_ai_coordinates(board)
-                board = perform_move(board, x, y, current_player)
+                board = perform_move(board, x, y, current_player[1])
                 save_record(history_list, current_player, x, y)
         elif game_mode == 4:
             if current_player == 'X':
                 x, y = convert_human_coordinates(get_human_coordinates(board))
-                board = perform_move(board, x, y, current_player)
+                board = perform_move(board, x, y, current_player[1])
                 save_record(history_list, current_player, x, y)
             elif current_player == 'O':
                 x, y = get_unbeatable_ai_coordinates(board)
-                board = perform_move(board, x, y, current_player)
+                board = perform_move(board, x, y, current_player[1])
                 save_record(history_list, current_player, x, y)
 
         board[x][y] = current_player

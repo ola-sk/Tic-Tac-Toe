@@ -1,4 +1,23 @@
-from random import choices
+from random import choice
+
+
+def draw_which_player_is_first(name_1, name_2):
+    # wylosuj kolejność
+    player_1 = choice([name_1, name_2])
+    player_2 = None
+    if player_1 == name_1:
+        player_2 = name_2
+    elif player_1 == name_2:
+        player_2 = name_1
+    symbol_1 = input(player_1 + " please choose 'X' or 'O': ")
+    # wprowadź weryfikację danych użytkownika
+    symbol_2 = None
+    if symbol_1 == 'X':
+        symbol_2 = 'O'
+    elif symbol_1 == 'O':
+        symbol_2 = 'X'
+    print(player_1, "is", symbol_1, "and", player_2, "is", symbol_2)
+    return (player_1, symbol_1), (player_2, symbol_2)
 
 
 def get_menu_option():
