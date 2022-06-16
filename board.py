@@ -152,8 +152,12 @@ if __name__ == "__main__":
         ["X", "O", "."],
         ["X", "X", "O"],
     ]
-    print("Trying out 'is_board_full()' function on this board:", end='')
     display_board(board_1)
+    print("Powyżej jest tablica board_1")
+    print("--------------------------GET WINNING PLAYER_----------------------------")
+    print("WYGRAL: ", get_winning_player(board_1))
+    print("Trying out 'is_board_full()' function on this board:", end='')
+
     print("Should return False:")
     print(is_board_full(board_1), "\n")
 
