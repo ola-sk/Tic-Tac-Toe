@@ -26,9 +26,9 @@ def main():
         name_2 = input("Please give the second name:")
         player_1, player_2 = draw_which_player_is_first(name_1, name_2)  # ta funkcja przypisuje do zmiennych
         # player 1, player_2 tuple, która przechowuje imię i symbol ('X' or 'O')
-        print(player_1[0], "please choose the coordinate: ")
-        print("Player_1: ", player_1)
-        print("Player_2: ", player_2)
+        # print(player_1[0], "please choose the coordinate: ")
+        # print("Player_1: ", player_1)
+        # print("Player_2: ", player_2)
     if game_mode == 2:
         name_1 = input("Please enter your name:")
         name_2 = "random ai"
@@ -76,7 +76,7 @@ def main():
         # x: row of the board coordinate
         # y: column of the boards coordinate
         if game_mode == 1:
-            x, y = convert_human_coordinates(get_human_coordinates(board))
+            x, y = convert_human_coordinates(get_human_coordinates(board, current_player))
             board = perform_move(board, x, y, current_player[1])
             save_record(history_list, current_player, x, y)
         elif game_mode == 2:
@@ -102,7 +102,7 @@ def main():
                 board = perform_move(board, x, y, current_player[1])
                 save_record(history_list, current_player, x, y)
 
-        board[x][y] = current_player
+        board[x][y] = current_player[1]
 
         # TODO ###
         # based on the values of `winning_player` and `its_a_tie` the program
