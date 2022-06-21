@@ -20,6 +20,7 @@ def main():
     game_mode = get_menu_option()
     board = get_empty_board()
     history_list = []
+    
     if game_mode == 1:
         print("Please give names of the players.")
         name_1 = input("Please give the first name:")
@@ -29,10 +30,15 @@ def main():
         # print(player_1[0], "please choose the coordinate: ")
         # print("Player_1: ", player_1)
         # print("Player_2: ", player_2)
-    if game_mode == 2:
+    elif game_mode == 2:
+        name_1 = "random_ai_1"
+        name_2 = "random_ai_2"
+        player_1, player_2 = draw_which_player_is_first(name_1, name_2)
+    elif game_mode == 3:
         name_1 = input("Please enter your name:")
         name_2 = "random ai"
         player_1, player_2 = draw_which_player_is_first(name_1, name_2)
+
     its_a_tie = False
     # empty_fields = get_empty_fields(board)
     try:
@@ -44,6 +50,7 @@ def main():
               "the game doesn't work with characters others than those.")
         # TODO make a proper exception handling: create a function that will get another proper value assigned to the
         #  current_player
+
     is_game_running = True
     while is_game_running:
         display_board(board)
@@ -84,17 +91,17 @@ def main():
             board = perform_move(board, x, y, current_player[1])
             save_record(history_list, current_player, x, y)
         elif game_mode == 3:
-            if current_player == 'X':
-                x, y = convert_human_coordinates(get_human_coordinates(board))
+            if current_player[0] != "random ai":
+                x, y = convert_human_coordinates(get_human_coordinates(board, current_player))
                 board = perform_move(board, x, y, current_player[1])
                 save_record(history_list, current_player, x, y)
-            elif current_player == 'O':
+            elif current_player[0] == "random ai":
                 x, y = get_random_ai_coordinates(board)
                 board = perform_move(board, x, y, current_player[1])
                 save_record(history_list, current_player, x, y)
         elif game_mode == 4:
             if current_player == 'X':
-                x, y = convert_human_coordinates(get_human_coordinates(board))
+                x, y = convert_human_coordinates(get_human_coordinates(board, current_player))
                 board = perform_move(board, x, y, current_player[1])
                 save_record(history_list, current_player, x, y)
             elif current_player == 'O':
@@ -102,7 +109,7 @@ def main():
                 board = perform_move(board, x, y, current_player[1])
                 save_record(history_list, current_player, x, y)
 
-        board[x][y] = current_player[1]
+        # board[x][y] = current_player[1]
 
         # TODO ###
         # based on the values of `winning_player` and `its_a_tie` the program
@@ -126,7 +133,7 @@ def main():
 
         if its_a_tie or winning_player:
             is_game_running = False
-
+            
 
 if __name__ == "__main__":
     main()
