@@ -13,6 +13,8 @@ def draw_which_player_is_first(name_1, name_2):
 
     if player_1 != "random ai" and player_1 != "random_ai_1" and player_1 != "random_ai_2":
         symbol_1 = input(player_1 + " please choose 'X' or 'O': ")
+        while symbol_1 !='X' and symbol_1 !='O':
+            symbol_1 = input("Wrong choice, please choose 'X' or 'O': ")
     # wprowadź weryfikację danych użytkownika
         symbol_2 = None
     elif player_1 == "random ai" or player_1 =="random_ai_1" or player_1 =="random_ai_2":
