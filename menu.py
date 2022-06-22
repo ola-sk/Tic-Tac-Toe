@@ -1,4 +1,5 @@
 from random import choice
+from time import sleep
 
 
 def draw_which_player_is_first(name_1, name_2):
@@ -23,6 +24,7 @@ def draw_which_player_is_first(name_1, name_2):
     elif symbol_1 == 'O':
         symbol_2 = 'X'
     print(player_1, "is", symbol_1, "and", player_2, "is", symbol_2)
+    sleep(3)
     return (player_1, symbol_1), (player_2, symbol_2)
 
 

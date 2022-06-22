@@ -1,5 +1,5 @@
 from typing import List
-
+from time import sleep
 from board import is_board_full
 
 
@@ -129,7 +129,7 @@ def get_random_ai_coordinates(board):
     else:
         seed()
         coordinate = choice(list(empty_fields))
-
+        sleep(1)
         return coordinate
 
     # check if coordinate is free...

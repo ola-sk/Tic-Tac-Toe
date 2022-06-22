@@ -119,8 +119,10 @@ def main():
         if winning_player is None and is_board_full(board):
             its_a_tie = True
         if its_a_tie:
+            display_board(board)
             print("It is a tie!")
         elif winning_player:
+            display_board(board)
             try:
                 if winning_player == 'X':
                     print("X has won the game!")
