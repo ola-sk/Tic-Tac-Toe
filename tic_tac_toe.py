@@ -125,9 +125,9 @@ def main():
             display_board(board)
             try:
                 if winning_player == 'X':
-                    print("X has won the game!")
+                    print(f"{current_player[0]} has won the game!")
                 elif winning_player == 'O':
-                    print("O has won the game!")
+                    print(f"{current_player[0]} has won the game!")
                 else:
                     raise ValueError
             except ValueError:
