@@ -11,16 +11,13 @@ def draw_which_player_is_first(name_1, name_2):
     elif player_1 == name_2:
         player_2 = name_1
 
-    if player_1 != "random ai" and player_1 != "random_ai_1" and player_1 != "random_ai_2":
+    if player_1 != "random ai" and player_1 != "random_ai_1" and player_1 != "random_ai_2" and player_1 != "unbeatable_ai":
         symbol_1 = input(player_1 + " please choose 'X' or 'O': ")
-        while symbol_1 !='X' and symbol_1 !='O':
+        while symbol_1 != 'X' and symbol_1 != 'O':
             symbol_1 = input("Wrong choice, please choose 'X' or 'O': ")
-    # wprowadź weryfikację danych użytkownika
-        symbol_2 = None
-    elif player_1 == "random ai" or player_1 =="random_ai_1" or player_1 =="random_ai_2":
-        symbol_1 = choice(['X','O'])
-        symbol_2 = None
-
+        # wprowadź weryfikację danych użytkownika
+    elif player_1 == "random ai" or player_1 == "random_ai_1" or player_1 == "random_ai_2" or player_1 == "unbeatable_ai":
+        symbol_1 = choice(['X', 'O'])
     if symbol_1 == 'X':
         symbol_2 = 'O'
     elif symbol_1 == 'O':
@@ -61,9 +58,6 @@ def get_menu_option():
             continue
         else:
             return chosen_option
-
-
-
 
 
 if __name__ == "__main__":

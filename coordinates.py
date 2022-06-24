@@ -56,7 +56,8 @@ def get_human_coordinates(board, current_player):
         if field.lower() == "quit":
             sys.exit()
 
-        if (field != "A1" and field != "A2" and field != "A3" and field != "B1" and field != "B2" and field != "B3" and field != "C1" and field != "C2" and field != "C3"):
+        if (field != "A1" and field != "A2" and field != "A3" and field != "B1" and field != "B2" and field != "B3" and
+                field != "C1" and field != "C2" and field != "C3"):
             print("Warning! Invalid input!")
         elif fields[field] != ".":
             print("Sorry. The field is already taken, try again!")
