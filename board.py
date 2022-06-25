@@ -70,45 +70,48 @@ def is_board_full(board, empty_fields_set_local=False):
         return False
 
 
-def get_winning_player(board):
+def get_winning_player(board, players):
     """
     Should return the player that wins based on the tic tac toe rules.
     If no player has won, then "None" is returned.
     """
-    if board[0][0] == board[0][1] == board[0][2] == "X":
-        return "X"
-    elif board[1][0] == board[1][1] == board[1][2] == "X":
-        return "X"
-    elif board[2][0] == board[2][1] == board[2][2] == "X":
-        return "X"
-    elif board[0][0] == board[1][0] == board[2][0] == "X":
-        return "X"
-    elif board[0][1] == board[1][1] == board[2][1] == "X":
-        return "X"
-    elif board[0][2] == board[1][2] == board[2][2] == "X":
-        return "X"
-    elif board[0][0] == board[1][1] == board[2][2] == "X":
-        return "X"
-    elif board[2][0] == board[1][1] == board[0][2] == "X":
-        return "X"
-    elif board[0][0] == board[0][1] == board[0][2] == "O":
-        return "O"
-    elif board[1][0] == board[1][1] == board[1][2] == "O":
-        return "O"
-    elif board[2][0] == board[2][1] == board[2][2] == "O":
-        return "O"
-    elif board[0][0] == board[1][0] == board[2][0] == "O":
-        return "O"
-    elif board[0][1] == board[1][1] == board[2][1] == "O":
-        return "O"
-    elif board[0][2] == board[1][2] == board[2][2] == "O":
-        return "O"
-    elif board[0][0] == board[1][1] == board[2][2] == "O":
-        return "O"
-    elif board[2][0] == board[1][1] == board[0][2] == "O":
-        return "O"
+    for player in players:
+
+        if board[0][0] == board[0][1] == board[0][2] == player:
+            return player
+        elif board[1][0] == board[1][1] == board[1][2] == player:
+            return player
+        elif board[2][0] == board[2][1] == board[2][2] == player:
+            return player
+        elif board[0][0] == board[1][0] == board[2][0] == player:
+            return player
+        elif board[0][1] == board[1][1] == board[2][1] == player:
+            return player
+        elif board[0][2] == board[1][2] == board[2][2] == player:
+            return player
+        elif board[0][0] == board[1][1] == board[2][2] == player:
+            return player
+        elif board[2][0] == board[1][1] == board[0][2] == player:
+            return player
     else:
         return None
+    # elif board[0][0] == board[0][1] == board[0][2] == "O":
+    #     return "O"
+    # elif board[1][0] == board[1][1] == board[1][2] == "O":
+    #     return "O"
+    # elif board[2][0] == board[2][1] == board[2][2] == "O":
+    #     return "O"
+    # elif board[0][0] == board[1][0] == board[2][0] == "O":
+    #     return "O"
+    # elif board[0][1] == board[1][1] == board[2][1] == "O":
+    #     return "O"
+    # elif board[0][2] == board[1][2] == board[2][2] == "O":
+    #     return "O"
+    # elif board[0][0] == board[1][1] == board[2][2] == "O":
+    #     return "O"
+    # elif board[2][0] == board[1][1] == board[0][2] == "O":
+    #     return "O"
+
 
     # import numpy
     # # TODO implement win_line (introduce indexing to the logic below)
