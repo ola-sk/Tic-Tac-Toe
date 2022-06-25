@@ -2,6 +2,11 @@ from random import choice
 from time import sleep
 
 
+AI_NAME = "Ciastko"
+AI_1_NAME = "AI 1"
+AI_2_NAME = "AI 2"
+
+
 def draw_which_player_is_first(name_1, name_2):
     # wylosuj kolejność
     player_1 = choice([name_1, name_2])
@@ -11,7 +16,7 @@ def draw_which_player_is_first(name_1, name_2):
     elif player_1 == name_2:
         player_2 = name_1
 
-    if player_1 != "random ai" and player_1 != "random_ai_1" and player_1 != "random_ai_2" and player_1 != "unbeatable_ai":
+    if player_1 != AI_NAME and player_1 != "random_ai_1" and player_1 != "random_ai_2" and player_1 != "unbeatable_ai":
         symbol_1 = input(player_1 + " please choose 'X' or 'O': ")
         while symbol_1 != 'X' and symbol_1 != 'O':
             symbol_1 = input("Wrong choice, please choose 'X' or 'O': ")
