@@ -20,38 +20,40 @@ def get_human_coordinates(board, current_player):
     # while ((letter != "A" and letter != "B" and letter != "C") or (number != 1 and number != 2 and number != 3)):
     #     letter = input("Enter a line A, B or C: ")
     #     if "quit" == letter.lower(): 
-        #     print("Good Bye")
-        #     break
+    #     print("Good Bye")
+    #     break
 
-        # number = input("Enter a column 1, 2 or 3: ")
-    
-        # if "quit" == number.lower():
-        #     print("Good Bye")
-        #     break
+    # number = input("Enter a column 1, 2 or 3: ")
 
-        # number = int(number)
-        # if ((letter != "A" and letter != "B" and letter != "C") or (number != 1 and number != 2 and number != 3)):
-        #     print("Warning! Invalid input!")
-        # else:
-        #     print(f"You have chosen {letter}{number} ")
-        #     return letter, number
+    # if "quit" == number.lower():
+    #     print("Good Bye")
+    #     break
+
+    # number = int(number)
+    # if ((letter != "A" and letter != "B" and letter != "C") or (number != 1 and number != 2 and number != 3)):
+    #     print("Warning! Invalid input!")
+    # else:
+    #     print(f"You have chosen {letter}{number} ")
+    #     return letter, number
 
     import sys
     field = ''
     fields = {
-            "A1": board[0][0],
-            "A2": board[0][1],
-            "A3": board[0][2],
-            "B1": board[1][0],
-            "B2": board[1][1],
-            "B3": board[1][2],
-            "C1": board[2][0],
-            "C2": board[2][1],
-            "C3": board[2][2]
-        }
+        "A1": board[0][0],
+        "A2": board[0][1],
+        "A3": board[0][2],
+        "B1": board[1][0],
+        "B2": board[1][1],
+        "B3": board[1][2],
+        "C1": board[2][0],
+        "C2": board[2][1],
+        "C3": board[2][2]
+    }
 
-    while (field != "A1" and field != "A2" and field != "A3" and field != "B1" and field != "B2" and field != "B3" and field != "C1" and field != "C2" and field != "C3") or fields[field] != ".":
-        field=input(f"{current_player[0]}, enter a field A1, A2, A3, B1, B2, B3, C1, C2 or C3: ")
+    while (
+            field != "A1" and field != "A2" and field != "A3" and field != "B1" and field != "B2" and field != "B3" and field != "C1" and field != "C2" and field != "C3") or \
+            fields[field] != ".":
+        field = input(f"{current_player[0]}, enter a field A1, A2, A3, B1, B2, B3, C1, C2 or C3: ")
 
         if field.lower() == "quit":
             sys.exit()
@@ -65,8 +67,6 @@ def get_human_coordinates(board, current_player):
             letter = field[0]
             number = int(field[1])
             return letter, number
-
-    
 
     # letter = input("Enter a row letter (A/B/C): ")
     # while letter.upper() != "A" and letter.upper() != "B" and letter.upper() != "C":
