@@ -51,7 +51,8 @@ def get_human_coordinates(board, current_player):
     }
 
     while (
-            field != "A1" and field != "A2" and field != "A3" and field != "B1" and field != "B2" and field != "B3" and field != "C1" and field != "C2" and field != "C3") or \
+            field != "A1" and field != "A2" and field != "A3" and field != "B1" and field != "B2" and field != "B3" and
+            field != "C1" and field != "C2" and field != "C3") or \
             fields[field] != ".":
         field = input(f"{current_player[0]}, enter a field A1, A2, A3, B1, B2, B3, C1, C2 or C3: ")
 
